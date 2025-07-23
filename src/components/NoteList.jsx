@@ -40,14 +40,14 @@ const NoteList = ({
         </button>
       </div>
       {/* 中间内容区 */}
-      <div className="flex-1 bg-yellow-50 rounded-xl p-2 sm:p-4 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+      <div className="flex-1 bg-yellow-50 rounded-xl p-2 sm:p-4 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 auto-rows-[8rem]">
         {!coloredNotes.length ? (
           <div className="col-span-1 sm:col-span-2 text-gray-400 text-center py-8">暂无便签</div>
         ) : (
           coloredNotes.map((note, i) => (
             <div
               key={i}
-              className={`rounded-lg shadow p-3 sm:p-4 md:p-4 lg:p-5 ${note.color} text-gray-800 font-medium relative transition-colors dark:bg-card dark:text-card-foreground max-h-48 overflow-y-auto`}
+              className={`rounded-lg shadow p-1 sm:p-2 md:p-2 lg:p-2 ${note.color} text-gray-800 font-medium relative transition-colors dark:bg-card dark:text-card-foreground h-32 overflow-y-auto`}
             >
               {/* 移动端：标题+内容一起显示 */}
               <div className="block md:hidden mb-2 font-bold text-base break-words">{note.title}</div>
