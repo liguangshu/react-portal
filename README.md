@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# React Portal 便签应用
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个基于 React + Zustand + TailwindCSS 的简易便签管理应用，支持深色/浅色主题切换，便签数据本地存储，界面美观，交互流畅。
 
-## Available Scripts
+## ✨ 主要功能
 
-In the project directory, you can run:
+- 📝 新建、删除便签
+- 💾 便签数据自动保存到浏览器本地（localStorage）
+- 🌗 支持深色/浅色主题切换，自动跟随系统
+- ⚡ 响应式布局，适配不同屏幕
+- 🚀 纯前端实现，无需后端
 
-### `npm start`
+## 📦 技术栈
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React 19
+- Zustand（状态管理）
+- TailwindCSS（样式）
+- Radix UI、Ant Design（部分UI组件）
+- React Router v7
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ 安装与启动
 
-### `npm test`
+1. **安装依赖**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+2. **启动开发环境**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   npm start/npm run start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   启动后访问 [http://localhost:3000](http://localhost:3000)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **打包构建**
 
-### `npm run eject`
+   ```bash
+   npm run build
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   构建产物会输出到 `build/` 目录。
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **运行测试**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm test
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📁 目录结构
 
-## Learn More
+```
+src/
+  components/      // 复用组件
+  pages/           // 页面组件
+  store/           // 状态管理
+  router/          // 路由配置
+  App.js           // 应用入口
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📝 说明
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 所有便签数据仅保存在本地浏览器，不会上传服务器。
+- 主题切换按钮位于页面右上角，支持深色/浅色模式。
+- 如需重置数据，请清除浏览器 localStorage。
