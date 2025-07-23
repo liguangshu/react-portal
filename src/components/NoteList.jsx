@@ -27,7 +27,7 @@ const NoteList = ({
       <div className="hidden md:flex w-1/5 bg-purple-100 rounded-xl p-4 flex-col justify-between dark:bg-card dark:text-card-foreground">
         <div>
           {coloredNotes.length ? coloredNotes.map((note, i) => (
-            <div key={i} className="bg-purple-300 rounded-lg mb-4 p-4 text-gray-800 shadow text-base md:text-lg lg:text-xl font-semibold break-words">
+            <div key={i} className="bg-purple-300 rounded-lg mb-4 p-4 text-gray-800 shadow text-base md:text-lg lg:text-xl font-semibold break-words h-32">
               {note.title}
             </div>
           )) : null}
