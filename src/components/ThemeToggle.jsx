@@ -14,7 +14,6 @@ const getInitialTheme = () => {
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(getInitialTheme);
-
   useEffect(() => {
     const root = window.document.documentElement;
     if (theme === "dark") {

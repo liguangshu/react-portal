@@ -1,5 +1,6 @@
 import React from "react";
 import AddNoteModal from "./AddNoteModal";
+import { Plus } from "lucide-react";
 
 const noteColors = [
   "bg-red-200",
@@ -21,9 +22,9 @@ const NoteList = ({
   const coloredNotes = notes.map((note, i) => ({ ...note, color: noteColors[i % noteColors.length] }));
 
   return (
-    <div className="flex gap-4 p-4 min-h-screen bg-background text-foreground transition-colors">
+    <div className="flex flex-col md:flex-row gap-4 p-2 md:p-4 min-h-screen bg-background text-foreground transition-colors relative">
       {/* 左侧标题区 */}
-      <div className="w-1/5 bg-purple-100 rounded-xl p-4 flex flex-col justify-between dark:bg-card dark:text-card-foreground">
+      <div className="hidden md:flex w-1/5 bg-purple-100 rounded-xl p-4 flex-col justify-between dark:bg-card dark:text-card-foreground">
         <div>
           {coloredNotes.length ? coloredNotes.map((note, i) => (
             <div key={i} className="bg-purple-300 rounded-lg mb-4 p-4 text-gray-800 shadow text-base md:text-lg lg:text-xl font-semibold break-words">
@@ -39,16 +40,19 @@ const NoteList = ({
         </button>
       </div>
       {/* 中间内容区 */}
-      <div className="w-3/5 bg-yellow-50 rounded-xl p-8 grid grid-cols-4 gap-6">
+      <div className="flex-1 bg-yellow-50 rounded-xl p-2 sm:p-4 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
         {!coloredNotes.length ? (
-          <div className="col-span-2 text-gray-400 text-center py-8">暂无便签</div>
+          <div className="col-span-1 sm:col-span-2 text-gray-400 text-center py-8">暂无便签</div>
         ) : (
           coloredNotes.map((note, i) => (
             <div
               key={i}
-              className={`rounded-lg shadow p-6 h-32 ${note.color} text-gray-800 font-medium relative transition-colors dark:bg-card dark:text-card-foreground`}
+              className={`rounded-lg shadow p-3 sm:p-4 md:p-4 lg:p-5 ${note.color} text-gray-800 font-medium relative transition-colors dark:bg-card dark:text-card-foreground max-h-48 overflow-y-auto`}
             >
+              {/* 移动端：标题+内容一起显示 */}
+              <div className="block md:hidden mb-2 font-bold text-base break-words">{note.title}</div>
               <div className="break-words whitespace-pre-line">{note.content}</div>
+              {/* 桌面端：只显示内容，标题在左侧栏 */}
               <button
                 onClick={() => onDeleteNote(i)}
                 className="absolute top-2 right-2 text-destructive hover:text-red-700 text-xl"
@@ -61,11 +65,19 @@ const NoteList = ({
         )}
       </div>
       {/* 右侧灰色装饰区 */}
-      <div className="w-1/5 flex flex-col gap-4">
+      <div className="hidden md:flex w-1/5 flex-col gap-4">
         <div className="bg-gray-200 rounded-lg h-24 shadow" />
         <div className="bg-gray-200 rounded-lg h-24 shadow" />
         <div className="bg-gray-200 rounded-lg h-24 shadow" />
       </div>
+      {/* 移动端悬浮添加按钮 */}
+      <button
+        className="md:hidden fixed left-4 bottom-4 z-50 p-4 rounded-full bg-blue-500 text-white shadow-lg flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-blue-400"
+        onClick={() => setModalOpen(true)}
+        aria-label="添加便签"
+      >
+        <Plus size={28} />
+      </button>
       {/* 添加便签弹窗 */}
       <AddNoteModal open={modalOpen} onClose={() => setModalOpen(false)} onAddNote={onAddNote} />
     </div>

@@ -7,7 +7,8 @@ import { Button } from "./ui/button";
 const AddNoteModal = ({ open, onClose, onAddNote }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
+  const theme = window.localStorage.getItem("theme");
+  console.log(theme);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim() || !content.trim()) return;
@@ -39,8 +40,8 @@ const AddNoteModal = ({ open, onClose, onAddNote }) => {
             className="bg-background text-foreground placeholder:text-muted-foreground"
           />
           <DialogFooter className="flex justify-end gap-2">
-            <Button type="button" variant="secondary" onClick={onClose}>取消</Button>
-            <Button type="submit" className="bg-primary text-primary-foreground">添加</Button>
+            <Button type="button" variant="secondary" onClick={onClose} className="h-8 w-20">取消</Button>
+            <Button type="submit" className="bg-primary text-primary-foreground h-8 w-20">添加</Button>
           </DialogFooter>
         </form>
       </DialogContent>
