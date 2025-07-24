@@ -30,14 +30,14 @@ const AddNoteModal = ({ open, onClose, onAddNote }) => {
             placeholder="标题"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="bg-background text-foreground placeholder:text-muted-foreground"
+            // className="bg-background text-foreground placeholder:text-muted-foreground"
           />
           <Textarea
             placeholder="内容"
             value={content}
             onChange={(e) => setContent(e.target.value)}
             rows={3}
-            className="bg-background text-foreground placeholder:text-muted-foreground"
+            // className="bg-background text-foreground placeholder:text-muted-foreground"
           />
           <DialogFooter className="flex justify-end gap-2">
             <Button type="button" variant="secondary" onClick={onClose} className="h-8 w-20">取消</Button>
