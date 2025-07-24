@@ -25,7 +25,7 @@ const NoteList = ({
   }));
 
   return (
-    <div className="flex flex-col md:flex-row gap-12 p-2 md:p-4 min-h-screen h-screen bg-background text-foreground transition-colors relative">
+    <div className="flex flex-col md:flex-row gap-12 md:pt-10 md:px-10 min-h-screen h-screen bg-background text-foreground transition-colors relative">
       {/* 左侧标题区 */}
       <div
         className="hidden md:flex w-1/5 h-full bg-purple-100 dark:bg-[#241c2c] rounded-xl pt-4 pb-4 flex-col items-center overflow-y-auto"
@@ -39,7 +39,7 @@ const NoteList = ({
             ? coloredNotes.map((note, i) => (
               <div
                 key={i}
-                className="bg-purple-300 dark:bg-[#32243d] rounded-lg mb-4 w-80 h-80 flex items-center justify-center text-gray-900 dark:text-gray-100 shadow text-base md:text-lg lg:text-xl font-semibold text-center break-words"
+                className="bg-purple-300 dark:bg-[#32243d] rounded-lg mb-4 w-80 h-80 p-4 flex text-gray-900 dark:text-gray-100 shadow text-base md:text-lg lg:text-xl font-semibold text-center break-words"
               >
                 {note.title}
               </div>
@@ -55,7 +55,7 @@ const NoteList = ({
         </button>
       </div>
       {/* 中间内容区 */}
-      <div className="flex-1 h-full bg-yellow-50 dark:bg-[#232336] rounded-xl p-2 sm:p-4 md:p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 auto-rows-[20rem] justify-items-center">        {!coloredNotes.length ? (
+      <div className="flex-1 h-full bg-yellow-50 dark:bg-[#232336] rounded-xl pt-4 sm:p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-4 auto-rows-[20rem] justify-items-center">        {!coloredNotes.length ? (
         <div className="col-span-1 sm:col-span-2 text-gray-400 text-center py-8">
           暂无便签
         </div>
@@ -63,13 +63,13 @@ const NoteList = ({
         coloredNotes.map((note, i) => (
           <div
             key={i}
-            className={`rounded-lg shadow-lg p-2 ${note.color} dark:bg-[#2d3142] dark:border dark:border-[#4b3869] text-gray-800 dark:text-gray-100 font-medium relative transition-all duration-200 w-80 h-80 flex flex-col items-center justify-center overflow-hidden hover:dark:border-[#a78bfa] hover:dark:shadow-[0_4px_32px_0_rgba(167,139,250,0.15)] hover:scale-105`}
+            className={`rounded-lg shadow-lg p-4 ${note.color} dark:bg-[#2d3142] dark:border dark:border-[#4b3869] text-gray-800 dark:text-gray-100 font-medium relative transition-all duration-200 w-80 h-80 overflow-hidden hover:dark:border-[#a78bfa] hover:dark:shadow-[0_4px_32px_0_rgba(167,139,250,0.15)] hover:scale-105`}
           >
             {/* 移动端：标题+内容一起显示 */}
             <div className="block md:hidden mb-2 font-bold text-base break-words">
               {note.title}
             </div>
-            <div className="text-center break-words whitespace-pre-line w-full">
+            <div className="break-words whitespace-pre-line w-full">
               {note.content}
             </div>
             <button
@@ -98,10 +98,10 @@ const NoteList = ({
         />
       </div>
       {/* 右侧灰色装饰区 */}
-      <div className="hidden md:flex w-1/5 h-full bg-gray-100 dark:bg-[#232336] rounded-xl flex-col gap-4">
-        <div className="bg-gray-200 dark:bg-[#3a3a4d] rounded-2xl h-24 shadow-lg" />
-        <div className="bg-gray-200 dark:bg-[#3a3a4d] rounded-lg h-24 shadow" />
-        <div className="bg-gray-200 dark:bg-[#3a3a4d] rounded-lg h-24 shadow" />
+      <div className="hidden md:flex w-1/5 h-full pt-4 p-4 bg-gray-100 dark:bg-[#232336] rounded-xl flex-col gap-4">
+        <div className="bg-gray-200 dark:bg-[#3a3a4d] rounded-2xl h-52 shadow-lg" />
+        <div className="bg-gray-200 dark:bg-[#3a3a4d] rounded-lg h-52 shadow" />
+        <div className="bg-gray-200 dark:bg-[#3a3a4d] rounded-lg h-52 shadow" />
       </div>
     </div>
   );
